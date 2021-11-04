@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/openSharp.png</file>
+        <file>icons/save.png</file>
+    </qresource>
+</RCC>
