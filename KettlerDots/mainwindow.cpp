@@ -18,7 +18,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionOpen_triggered()
 {
-    QString fp=QFileDialog::getOpenFileName();
+    QString fp=QFileDialog::getOpenFileName( this, "Выберите изображение для анализа",
+                                            QDir::homePath(), "All files (*.*) ;; PNG image (*.png) ;; JPG image (*.jpg) ;; uR mOm (*.fat)");
     ui->statusbar->showMessage("Открыто : "+fp,5000);
 }
 
