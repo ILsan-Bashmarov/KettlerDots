@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+
 namespace Ui {
 class TabTemplate;
 }
@@ -16,9 +17,20 @@ public:
     ~TabTemplate();
 
 private slots:
-    void foo(QString str);
+    void setImage(QString str);
+    void scaleImage(double factor);
+    void on_zoomInButton_clicked();
+
+    void on_zoomOutButton_clicked();
+
+    void on_normalSizeButton_clicked();
+
 private:
     Ui::TabTemplate *ui;
+
+    QPixmap MyPix;
+    double scaleFactor = 1;
+
 };
 
 #endif // TABTEMPLATE_H
