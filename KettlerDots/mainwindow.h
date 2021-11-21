@@ -20,6 +20,8 @@ private slots:
 
     void on_actionSave_triggered();
 
+    void on_tabWidget_tabCloseRequested(int index);
+
 private:
     Ui::MainWindow *ui;
 };
