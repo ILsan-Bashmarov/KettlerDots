@@ -35,7 +35,7 @@ void TabTemplate::on_zoomInButton_clicked()
 {
     this->scaleImage(1.25);
 }
-
+// aahrm
 
 void TabTemplate::on_zoomOutButton_clicked()
 {
