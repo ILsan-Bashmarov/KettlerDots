@@ -1,6 +1,7 @@
 #include "tabtemplate.h"
 #include "ui_tabtemplate.h"
 #include <QPixmap>
+#include <QString>
 TabTemplate::TabTemplate(QWidget *parent, QString str) :
     QWidget(parent),
     ui(new Ui::TabTemplate)
@@ -17,25 +18,25 @@ TabTemplate::~TabTemplate()
 
 void TabTemplate::scaleImage(double factor)
 {
-    this->scaleFactor*=factor;
-    ui->label->resize(this->scaleFactor*this->MyPix.size());
+    scaleFactor*=factor;
+    ui->graphicsView->scale(factor,factor);
+    ui->label->setText(QString::number(scaleFactor,'f',6));
 }
 
 void TabTemplate:: setImage(QString str)
 {
 
     MyPix.load(str);
-    ui->label->resize(MyPix.size());
-    ui->label->setScaledContents(true);
-    ui->label->setPixmap(MyPix);
-
+    scene = new QGraphicsScene(this);
+    scene->addPixmap(MyPix);
+    ui->graphicsView->setScene(scene);
 }
 
 void TabTemplate::on_zoomInButton_clicked()
 {
     this->scaleImage(1.25);
 }
-// aahrm
+
 
 void TabTemplate::on_zoomOutButton_clicked()
 {
@@ -45,8 +46,6 @@ void TabTemplate::on_zoomOutButton_clicked()
 
 void TabTemplate::on_normalSizeButton_clicked()
 {
-
-    ui->label->resize(MyPix.size());
-    this->scaleFactor=1.0;
+    scaleImage(1/scaleFactor);
 }
 

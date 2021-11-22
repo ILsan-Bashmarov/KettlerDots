@@ -2,7 +2,7 @@
 #define TABTEMPLATE_H
 
 #include <QWidget>
-
+#include <QGraphicsScene>
 
 namespace Ui {
 class TabTemplate;
@@ -29,6 +29,7 @@ private:
     Ui::TabTemplate *ui;
 
     QPixmap MyPix;
+    QGraphicsScene *scene;
     double scaleFactor = 1;
 
 };

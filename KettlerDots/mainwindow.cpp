@@ -22,13 +22,8 @@ void MainWindow::on_actionOpen_triggered()
     QString fp=QFileDialog::getOpenFileName( this, "Выберите изображение для анализа",
                                             QDir::homePath(), "All files (*.*) ;; PNG image (*.png) ;; JPG image (*.jpg) ;; uR mOm (*.fat)");
 
-    QPixmap pix(fp);
-
-  //  ui->label_image->setPixmap(pix);
-
     ui->statusbar->showMessage("Открыто : "+fp, 10000);
     ui->tabWidget->addTab( new TabTemplate(this, fp), fp);
-
 }
 
 
